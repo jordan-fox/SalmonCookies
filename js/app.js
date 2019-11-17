@@ -7,7 +7,9 @@ var hoursArray = [
   '7 a.m.',
 ];
 
-var storeSales = document.getElementById('stores');
+// var storeSales = document.getElementById('stores');
+
+var storeTable = document.getElementById('storeTable');
 
 var allStores = [];
 
@@ -55,20 +57,28 @@ Store.prototype.calculateCookies = function () {
 Store.prototype.render = function () {
   this.calculateCustomers(),
   this.calculateCookies();
-  var ulEl = document.createElement('ul');
-  var h2El = document.createElement('h2');
-  h2El.textContent = this.storeName;
-  storeSales.appendChild(h2El);
-  for( var i = 0; i < hoursArray.length; i++ ) {
-    var liEl = document.createElement('li');
-    liEl.textContent = `${hoursArray[i]}: ${this.cookiesSoldEachHourArray[i]} Cookies`;
-    ulEl.appendChild(liEl);
-  }
-  liEl = document.createElement('li');
-  liEl.textContent = `Total: ${this.totalCookiesTheDay} Cookies`;
-  ulEl.appendChild(liEl);
-  storeSales.appendChild(ulEl);
-};
+  
+
+
+}
+
+// Store.prototype.render = function () {
+//   this.calculateCustomers(),
+//   this.calculateCookies();
+//   var ulEl = document.createElement('ul');
+//   var h2El = document.createElement('h2');
+//   h2El.textContent = this.storeName;
+//   storeSales.appendChild(h2El);
+//   for( var i = 0; i < hoursArray.length; i++ ) {
+//     var liEl = document.createElement('li');
+//     liEl.textContent = `${hoursArray[i]}: ${this.cookiesSoldEachHourArray[i]} Cookies`;
+//     ulEl.appendChild(liEl);
+//   }
+//   liEl = document.createElement('li');
+//   liEl.textContent = `Total: ${this.totalCookiesTheDay} Cookies`;
+//   ulEl.appendChild(liEl);
+//   storeSales.appendChild(ulEl);
+// };
 
 function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min +1)) + min;
@@ -92,4 +102,3 @@ new Store('Paris', 20, 38, 2.3);
 for (var i = 0 ; i < allStores.length ; i++ ) {
   allStores[i].render();
 }
-
